@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Success Register{% endblock title %}
+{% block contents %}
+<style>
+    h1 {
+        text-align: center;
+        background-color: antiquewhite;
+    }
+    p {
+        text-align: center;
+        font-size: larger;
+        font-weight: bold;
+    }
+</style>
+<h1>登録が完了しました。</h1>
+<p><a href="{% url 'schedule:register' %}">続けて予定を登録する</a></p>
+<p><a href="{% url 'schedule:index' %}">HOMEに戻る</a></p>
+{% endblock contents %}

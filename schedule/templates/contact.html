@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}Contact{% endblock title %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+{% block contents %}
+<style>
+
+    form {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .label {
+        display: block;
+        margin-bottom: 8px;
+        width: auto;
+        height: auto;
+       
+    }
+
+
+    button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+
+    .form_contact {
+        text-align: center;
+    }
+</style>
+
+<h1>Contact</h1>
+{% if messages %}
+<ul class="list-unstyled" style="list-style: none;">
+{% for message in messages %}
+<li {% if message.tags %} class="{{message.tags}}"{%endif%}>
+    {{message}}
+</li>
+{% endfor %}
+</ul>
+{% endif %}
+<div class="form_contact">
+<form method="POST">
+  {% csrf_token %}
+    {% for field in form %}
+    <div class="label">
+        {{field.label_tag}}
+    </div>
+    <div class="field">
+        {{field}}
+    </div>
+    {% endfor %}
+    <br>
+  <button type="submit" class="btn btn-primary" id="sendMessageButton">Send</button>
+</form>
+</div>
+{% endblock contents %}

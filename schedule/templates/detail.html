@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Detail{% endblock title %}
+{% block contents %}
+<style>
+    .detail {
+        text-align: center;
+    }
+
+</style>
+<div class="detail">
+<h2>日付:{{object.date}}</h2>
+<p>イベント:{{object.event}}</p>
+<hr>
+<p>場所:{{object.place}}</p>
+</div>
+
+{%if request.user == object.user%}
+<form method="POST">
+<button><a href="{% url 'schedule:delete' object.pk %}" class="btn btn-primary my-2">予定を削除</a></button>
+</form>
+{%endif%}
+{% endblock contents %}

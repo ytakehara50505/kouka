@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Sign Up{% endblock title %}
+<body>
+{% block contents %}
+<h2 class="signuph2">アカウント登録</h2>
+
+<form class="signup" method="post">
+{% csrf_token %}
+{% for field in form %}
+<p class="form">
+{{field.label_tag}}
+{{field}}
+{% if field.help_text %}
+    <small style="color:grey">{{firld.help_text}}</small>
+{% endif %}
+
+    {% for error in field.errors %}
+    <p style="color:red">{{error}}</p>
+    {% endfor %}
+</p>
+{% endfor %}
+<button type="submit">登録する</button>
+</form>
+<p class="return_home"><a href="{% url 'schedule:index' %}">登録をやめて、HOMEに戻る</a></p>
+
+{% endblock contents %}
+</body>
+</html>
+

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Register{% endblock title %}
+{% block contents %}
+  
+<form method="POST">
+    {%csrf_token%}
+    <table>
+        <tr>
+            <th>日付</th>
+            <td>{{ form.date }}</td>
+        </tr>
+        <tr>
+            <th>イベント</th>
+            <td>{{ form.event }}</td>
+        </tr>
+        <tr>
+            <th>場所</th>
+            <td>{{ form.place }}</td>
+        </tr>
+    </table>
+    <hr>
+    <button type="submit">予定を登録する</button>
+  <a class="back" href="{% url 'schedule:index' %}">戻る</a>
+
+</form>
+{% endblock contents %}

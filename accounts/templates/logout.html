@@ -1,0 +1,42 @@
+<style>
+    .main {
+        text-align: center;
+    }
+
+    .link  a {
+        padding: 7px 13px;
+        background: green;
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        border-radius: 15px;
+        transition: 0.5s;
+    }
+    .link a:hover {
+        background-color: skyblue;
+    }
+
+    .link p {
+        padding-bottom: 5px;
+    }
+
+    hr {
+        color: skyblue;
+        border: solid 2px;
+    }
+
+    .main h3 {
+        font-weight: bold;
+        
+    }
+</style>
+<hr>
+<div class="main">
+    <h3><strong>ログアウトしました</strong></h3>
+<div class="link">
+    <p><a href="{% url 'schedule:index' %}">HOMEへ</a></p>
+    <p><a href="{% url 'accounts:login' %}">Login画面へ</a></p>
+    <p><a href="{% url 'accounts:signup' %}">アカウント新規作成</a></p>
+</div>
+</div>  
+    <hr>
